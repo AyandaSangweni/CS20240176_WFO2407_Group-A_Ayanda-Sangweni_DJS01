@@ -42,9 +42,3 @@ remainingFuelKg = initialFuelKg - (fuelBurnRateKgPerHour * timeHours);
 console.log(`Corrected New Velocity: ${newVelocityKmh} km/h`);
 console.log(`Corrected New Distance: ${newDistanceKm} km`);
 console.log(`Corrected Remaining Fuel: ${remainingFuelKg} kg`);
-
-
-
-
-
-
