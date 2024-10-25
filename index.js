@@ -13,15 +13,25 @@ const initialDistanceKm = 0; // distance (km)
 const initialFuelKg = 5000; // remaining fuel (kg)
 const fuelBurnRateKgPerSecond = 0.5; // fuel burn rate (kg/s)
 
-//Convert acceleration from m/s^2 to Km/h^2
+let newVelocityKmh, newDistanceKm, remainingFuelKg;
+
+//Convert acceleration from m/s^2 to km/h^2
 const accelerationKmh2 = accelerationMs2 * 12960;
 
 //Convert time from seconds to hours
 const timeHours = timeSeconds / 3600;
 
-const d2 = d + (vel*time) //calcultes new distance
-const rf = fbr*time //calculates remaining fuel
-const vel2 = calcNewVel(acc, vel, time) //calculates new velocity based on acceleration
+//Convert fuel burn rate from kg/s to kg/h
+const fuelBurnRateKgPerHour = fuelBurnRateKgPerSecond * 3600;
+
+//Calculate new distance 
+newDistanceKm = initialDistanceKm + (initialVelocityKmh * timeHours);
+
+//Calculate remaining fuel
+remainingFuelKg = initialFuelKg - (fuelBurnRateKgPerHour * timeHours);
+
+//Calculate new Velocity
+newVelocityKmh = initialVelocityKmh + (accelerationKmh2 * timeHours);
 
 // Pick up an error with how the function below is called and make it robust to such errors
 calcNewVel = (vel, acc, time) => { 
