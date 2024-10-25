@@ -25,23 +25,23 @@ const timeHours = timeSeconds / 3600;
 //Convert fuel burn rate from kg/s to kg/h
 const fuelBurnRateKgPerHour = fuelBurnRateKgPerSecond * 3600;
 
+//Calculate new Velocity
+newVelocityKmh = initialVelocityKmh + (accelerationKmh2 * timeHours);
+
 //Calculate new distance 
 newDistanceKm = initialDistanceKm + (initialVelocityKmh * timeHours);
 
 //Calculate remaining fuel
 remainingFuelKg = initialFuelKg - (fuelBurnRateKgPerHour * timeHours);
 
-//Calculate new Velocity
-newVelocityKmh = initialVelocityKmh + (accelerationKmh2 * timeHours);
-
 } catch (error) {
   console.error(`Error in calculations: ${error.message}`);
   return;
 }
 
-console.log(`Corrected New Velocity: ${vel2} km/h`);
-console.log(`Corrected New Distance: ${d2} km`);
-console.log(`Corrected Remaining Fuel: ${rf} kg`);
+console.log(`Corrected New Velocity: ${newVelocityKmh} km/h`);
+console.log(`Corrected New Distance: ${newDistanceKm} km`);
+console.log(`Corrected Remaining Fuel: ${remainingFuelKg} kg`);
 
 
 
