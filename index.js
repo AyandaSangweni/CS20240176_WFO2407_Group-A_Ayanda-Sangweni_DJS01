@@ -36,7 +36,6 @@ remainingFuelKg = initialFuelKg - (fuelBurnRateKgPerHour * timeHours);
 
 } catch (error) {
   console.error(`Error in calculations: ${error.message}`);
-  return;
 }
 
 console.log(`Corrected New Velocity: ${newVelocityKmh} km/h`);
