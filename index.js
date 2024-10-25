@@ -15,6 +15,7 @@ const fuelBurnRateKgPerSecond = 0.5; // fuel burn rate (kg/s)
 
 let newVelocityKmh, newDistanceKm, remainingFuelKg;
 
+try {
 //Convert acceleration from m/s^2 to km/h^2
 const accelerationKmh2 = accelerationMs2 * 12960;
 
@@ -33,9 +34,9 @@ remainingFuelKg = initialFuelKg - (fuelBurnRateKgPerHour * timeHours);
 //Calculate new Velocity
 newVelocityKmh = initialVelocityKmh + (accelerationKmh2 * timeHours);
 
-// Pick up an error with how the function below is called and make it robust to such errors
-calcNewVel = (vel, acc, time) => { 
-  return vel + (acc*time)
+} catch (error) {
+  console.error(`Error in calculations: ${error.message}`);
+  return;
 }
 
 console.log(`Corrected New Velocity: ${vel2} km/h`);
